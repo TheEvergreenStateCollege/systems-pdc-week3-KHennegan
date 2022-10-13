@@ -1,0 +1,97 @@
+<!DOCTYPE html> 
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<html> 
+<head> <title>Introduction to Cybersecurity</title>
+<link href="../mainstyles.css" rel="stylesheet" type="text/css" />
+</head> 
+<body> 
+<div id="container"> 
+<header>
+<h1>Introduction to Cybersecurity: Week 2</h1>
+
+</header>
+<h3>Welcome</h3>
+
+<h3>Learning Goals</h3>
+<h4>7 Major Learning Goals</h4>
+<ul>
+  <li> learn enough C to study secure coding, vulnerabilities, and assembly</li>
+  <li> learn assembly for reverse engineering, malware analysis, and binary exploitation</li>
+  <li> learn architecture to understand how programs interact</li>
+  <li> learn basics of Linux command line in order to search files, e.g. log files</li>
+  <li> learn basics of cryptography and authentication</li>
+  <li> develop the security mindset: how systems can fail and be made to fail</li>
+  <li> learn the basics of networking to detect intrusion</li>
+  <li> get an overview of cybersecurity</li>
+</ul>
+
+
+
+<h4> Learning Objectives: week 2</h4>
+
+<ul>
+  <li> Cryptography</li>
+  <li> buffer overflow with arrays</li>
+  <li> memory safety</li>
+</ul>
+
+<h4>Agenda</h4>
+<ul>
+  <li> cryptography</li>
+  <li> Discuss ethical hacking</li>
+  <li> Cryptography</li>
+  <li> BSides and EDURange</li> 
+</ul>
+
+
+<h4>Cryptography</h4>
+<ul>
+  <li> Caesar cipher: substitution only</li>
+  <li> more general monoalphabetic substitution</li>
+  <li> Vigener (polyalphabetic)</li>
+  <li> transposition cipher</li>
+  <li> combining the two</li>
+  <li> public key crypto</li>
+  <li> Diffie Hellman based on modular arithmetic
+    <pre>
+      p = 2**31 - 1 = 2147483647
+      base = 1023
+      suppose we want to solve base**x = 1000
+      what about base**x % p = 1000
+
+      what facts do you know about (base ** x) ** y?
+    </pre>
+    p must be prime, the base must be a generator
+    Do some examples in Python.
+  </li>
+  <li> If p is not prime or base is not a generator, then base ** x will repeat for multiple x's making it easier to brute-force</li>
+  <li> How Diffie-Hellman works: 
+    <pre>
+      (a ** b) ** c
+    </pre>
+  </li>
+  <li> RSA math is more complex. There are 2 large primes n = p * q
+    <pre>
+      a ** (k * (p-1)*(q-1) + 1) % n = a
+      e * d = k * (p-1) * (q-1) + 1
+      e is public
+      d is private
+    </pre>
+  </li>
+  <li> You odn't need to brute force RSA if you can factor n.</li>
+  <li> Some functions have inverses and some don't</li>
+  <li> A cipher needs an inverse, a hash does not have one</li>
+  <li> public key: the inverse cannot be derived from the cipher</li>
+
+</ul>
+
+<h4>Strings</h4>
+<ul>
+  <li> strings are arrays of char.</li>
+  <li> strings are null terminated. What doe that mean for allocating arrays</li>
+  <li> using string_stuff.c, fill in the code for copying strings? What could go wrong?</li>
+  <li> open and run string_test.c</li>
+</ul>
+
+
+</body> </html>

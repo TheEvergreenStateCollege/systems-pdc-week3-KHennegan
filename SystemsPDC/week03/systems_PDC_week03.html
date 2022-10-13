@@ -1,0 +1,306 @@
+<!DOCTYPE html> 
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<html> 
+<head> <title>Systems and PDC</title>
+<link href="../mainstyles.css" rel="stylesheet" type="text/css" />
+</head> 
+<body> 
+<div id="container"> 
+<header>
+<h1>Systems and Parallel and Distributed Computing: Week 3</h1>
+
+</header>
+<h3>Week 3</h3>
+
+<h3>Learning Goals</h3>
+<h4>Major Learning Goals</h4>
+<ul>
+  <li> learn enough C to study parallel computing and architecture</li>
+  <li> learn architecture to understand hardware support for parallel computing</li>
+  <li> learn 3 different models of parallel h/w 
+	<ul>
+	   <li> multicore</li>
+	   <li> vector processor</li>
+	   <li> distributed memory multi-processor</li>
+        </ul>
+  </li>
+  <li> learn parallel software frameworks: pthreads, OpenMP, Java Streams</li>
+  <li> Explain the difference between threads and processes</li>
+</ul>
+
+
+<h4>Major Learning Objectives: week 3</h4>
+<ul>
+  <li> use gcc compiler in Linux, object files</li>
+  <li> struct</li>
+  <li> heap vs stack</li>
+  <li> pointers vs arrays</li>
+  <li> C: use strings</li>
+  <li> How memory is laid out in C</li>
+  <li> Conway's Game of Life with 2D arrays</li>
+</ul>
+
+<h4>Taking notes</h4>
+<ul>
+  <li> why take notes</li>
+  <li> Cornell plus Sketchnotes</li>
+  <li> Quick overview: divide a page into 4 parts: header, body, side margin, bottom summary.</li>
+  <li> tools?</li> 
+</ul>
+
+<h4>Game next week: Thursday</h4>
+
+<h4>Questions (Tues)</h4>
+
+<h5> struct</h5>
+<ul> 
+  <li> What are the advangtages of O-O classes over structs? [poll or jamboard or whiteboard]</li>
+  <li> How to think about the syntax for struct
+    <pre>
+      type var1;
+      type var1, var2, var3;
+      type var1=val1, var2=val2;
+      struct s-name {fields} var1;
+    </pre>
+
+  </li>
+</ul>
+
+<h5> Memory: Heap vs stack, etc</h5>
+<ul>
+  <li> What is the real difference between the heap and the stack?</li>
+  <li> When we talk about memory locations, does that include registers? see figure on memory hierarchy</li>
+  <li> Is the heap like a junk drawer? Do values on the heap last a long or short time? are they accessed frequently or rarely?</li>
+  <li> When would you use malloc/free instead of array[SIZE]? [poll: array shared, you know the size at compile time, local]</li>
+  <li> Can you use pointers without using malloc?</li>
+  <li> Do most C programs use malloc()?</li>
+  <li> Why are globals bad? besides storage</li>
+  <li> Where can I learn more about stack and heap? I assume that you understand the figure in Chapter 2. OSTEP book Arpaci-Dusseau</li>
+</ul>
+
+<h5> Pointers and arrays</h5>
+<ul>
+  <li> What is a linked list? What is ArrayList in Java?</li>
+  <li> Making pointers or any variable global is always risky. Using aliases is also risky.
+    Classes (O-O) are the best solution to this. Instance variables are shared by methods and don't need to be passed as parameters,
+    but other classes cannot access them except through getters and setters.
+    <li> Why do you need to specify the number of columns for a 2D array?
+      <pre>
+        int arr[20][100];
+        arr is the base address of array arr
+        what is the adderss of arr[2][15], given the base address arr?
+      </pre>
+
+    </li>
+    <li> Why isn't there a function to tell you the size of an array i C?</li>
+    <li> Are all variables really pointers anyway?</li>
+    <li> When you pass an
+      array into a function, any manipulation to the array within the function changes the array in the
+      larger scope because it's actually the address of array[0] that gets passed in? In other words, it's
+      not a copy that gets passed in?  YES
+      </li>
+      <li> What is sizeof(int *)</li>
+      <li> looking at pointers and memory
+        <pre>
+          |          |    --->  |           |
+        </pre>
+        Which is the location of p? Which is the location of *p?
+      </li>
+      <li> Why are pointers so important? Almost every C program uses them.</li> 
+</ul>
+
+<h4>Thursday</h4>
+
+<h5>Other C stuff</h5>
+  <ul>
+    <li> what is the scope of a variable? That can be different from the life of the variable.</li>
+
+    <li> What is the difference between an argument and a [formal] parameter?
+    <pre>
+      int add(int x, int y){return x + y;}
+      int main(){
+        int a = 5;
+        int b = 7;
+        int z = add(a, b);
+    </pre> [poll]
+    </li>
+    <li> Next year is an OS and Networking year</li>
+    <li> circuits: any circuit can be constructed with AND, OR, NOT</li>
+    <LI> can any circuit be constructed with NAND?</LI>
+    <li> Can any circuit be constructed with XOR? [poll]</li>
+    <li> Using &amp; in front of a variable is useful whenever you want something to point to it.</li>
+    <li> The <code>restrict</code> keyword can be used with pointers
+    <pre>
+      void fun(int* restrict p) { }
+    </pre>
+    </li>
+</ul>
+
+<h4>Conway's Game of Life (2D arrays)</h4>
+See Wikipedia article
+<ul>
+  <li> This is an example of a cellular automaton. It composed of a grid of cells. Each cell has a binary state and
+    gets input from its immediate neighbors. Based on that, it can change its state according to fixed rules
+  </li>
+  <li> The board is an NxM grid, i.e. a 2D array, fixed size. not quite global. Maybe <code>static</code>.  </li>
+  <li> A value of 1 means that the cell is alive</li>
+  <li> The update rules are described in the Wikipedia article
+    <pre>
+      Any live cell with two or three live neighbors survives.
+      Any dead cell with three live neighbors becomes a live cell.
+      All other live cells die in the next generation. Similarly, all other dead cells stay dead.
+    </pre>
+  </li>
+  <li> For lab: You can first implement it in either Java or C [or both].</li>
+</ul>
+
+<h4>Debugging with gdb</h4>
+<ul>
+    <li> What can you do when your program crashes (segmentation fault)?</li>
+    <li> Java gives you a stack trace so you can see where the problem might be.</li>
+    <li> Our first goal is to use gdb to figure out where a program crashed.</li>
+</ul>
+
+
+<h4>Program structure</h4>
+You should have a programming environment to work in, e.g. gitpod. Note that gitpod has its own copy of the files from github
+<ul>
+  <li> git add, commit, push</li>
+  <li> Scope of variables: local or global
+    <pre>
+      int a;
+      int add(int x, int y) {
+        return x + y;
+      }
+      
+      int main() {
+        int c;
+      
+      }
+    </pre>
+    variables a, b, c, x, y
+  </li>
+ <li> see fig 1 in 2.1</li>
+ <h4> Pointers</h4>
+ <ul>
+  <li> pointers are addresses</li>
+  <li> 
+    <pre>
+      int *px;  //px is n address. The value at that address is an int
+      int *array;  //array is the address of an array of ints
+      int x = 8;
+      px = &amp;xi;
+      *px = 5; // what happens?
+    </pre>
+  </li> 
+  <li> NULL pointer
+    <pre>
+      px = NULL;
+      *px = 5;
+    </pre>
+  </li>
+  <li> pointers can be used to pass array parameters
+    <pre>
+      int array[] = {1,2,3,4,5};
+
+      void fun(int *p) {
+        p[0] = 12;
+        return;
+      }
+
+      fun(array);
+    </pre>
+  </li>
+  
+</ul>
+
+<!---->
+<h4>Dynamic memory allocation</h4>
+<ul>
+  <li> What are some reasons?</li>
+  <li> dynamic arrays [programming break]
+    <pre>
+      int *array = (int *) malloc(10 * sizeof(int));
+      if (array != NULL) {
+        array[9] = 42;
+      }
+      // does C initialize the array to 0?
+      free(array);
+      array = NULL;
+    </pre>
+  </li>
+  <li> memory management in C is a potential problem  </li>
+</ul>
+
+<h4>Arrays and strings</h4>
+<ol>
+  <li> syntax slightly different from java</li>
+  <li> example
+    <pre>
+      int ar[10];
+      int ar = {1,2,3,4};
+    </pre>
+  </li>
+  <li> Strings are arrays of char, 
+    <pre>
+      char str1[10];
+      char *str2 = "hello";
+    </pre>  
+  </li>
+  <li> what happens if you use [programming break]
+    <pre>
+      sizeof(*str2);
+      sizeof(*array);
+    </pre>
+  </li>
+</ol>
+
+<h4> Structs</h4>
+<ul>
+  <li> compound/derived type, like array but heterogeneous</li>
+  <li> example
+    <pre>
+      struct student {
+        char name[64];
+        int age;
+        float gpa;
+        int grad_yr;
+    };
+
+   
+    struct student student1;
+    student1.age = 5;
+
+    typedef struct student studentT;
+    studentT student2;
+
+    </pre>
+  </li>
+  <li> Structs are lvalues</li>
+</ul>
+
+<h4>Integers</h4>
+<ul>
+  <li> how many bytes in char, short, unsigned short, int, long?</li>
+  <li> How do you find the largest short? smallest short?</li>
+  <li> How do you find the largest int? smallest int?</li>
+</ul>  
+
+<h4>Processors</h4>
+<ul>
+  <li> CPU
+    <ul>
+      <li> ALU</li>
+      <li> registers: general purpose and specific</li>
+      <li> MUXs</li>
+      <li> clock</li>
+    </ul>
+
+  </li>
+  <LI> Memory</LI>
+  <li> input</li>
+  <li> output</li>
+  <li> buses</li>
+</ul>
+-->
+</body> </html>

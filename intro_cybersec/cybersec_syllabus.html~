@@ -1,0 +1,372 @@
+<!DOCTYPE html> 
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<html> 
+<head> <title>Systems and Parallel and Distributed Computing</title>
+<link href="../mainstyles.css" rel="stylesheet" type="text/css" />
+</head> 
+<body> 
+<div id="container"> 
+<header>
+<h1>Syllabus: Systems and Parallel and Distributed Computing</h1>
+
+</header>
+<h3>Welcome</h3>
+
+<h3>Learning Goals</h3>
+<h4>7 Major Learning Goals</h4>
+<ul>
+  <li> learn enough C to study architecture, assembly language.</li>
+  <li> learn assembly for architecture (how computers work)</li>
+  <li> learn architecture to understand programs</li>
+  <li> learn basics of Linux command line</li>
+  <li> Write parallel algorithms to solve computational problems on parallel hardware.</li>
+  <li> Analyze the efficiency of a parallel implementation, e.g. measure speedup.</li>
+  <li> Program a parallel algorithm using one of the standard paradigms/programming languages,
+  e.g. Threading in Java, multithreading in C: OpenMP, pthreads, MPI, OpenACC, OpenCL</li>
+</ul>
+
+
+<h4>Major Learning Objectives</h4>
+<ul>
+  <li> Explain the difference between parallelism and concurrency</li>
+  <li> Write parallel programs in OpenMP in C</li>
+  <li> Explain when and how a serial algorithm can be parallelized to speed up execution</li>
+  <li> Identify data dependence in a for-loop</li>
+  <li> Explain the benefits of multicore HW and multithreaded SW</li>
+</ul>
+
+<h4>Weekly topics</h4>
+<ul>
+  <li> Week 1
+    <ul>
+      <li> Intro to Linux CLI</li>
+      <li> Intro to computer architecture</li>
+      <li> A brief intro to networking</li>
+      <li> An intro to programming in C</li>
+    </ul>
+  </li>
+  <li> week 2
+    <ul>
+      <li> more C programming, pointers</li>
+      <li> function stack</li>
+      <li> dynamic memory allocation</li>
+      <li> strings and arrays</li>
+      <li> compiling C to assembly</li>
+    </ul>
+  </li>
+  <li> week 3
+    <ul>
+      <li>gdb</li>
+    </ul>
+  </li>
+  <li> week 4
+    <ul>
+      <li> processor architecture (ch5)</li>
+      <li> multicore (ch14)</li>
+      <li> x86 assembly (ch8)</li>
+      <li> OpenMP (ch14)</li>
+    </ul>
+  </li>
+  <li> week 5
+    <ul>
+      <li>memory</li>
+      <li>pthreads (ch14)</li>
+    </ul>
+  </li>
+  <li> week 6
+    <ul>
+      <li> code optimization (ch12)</li>
+      <li> OS and virtual memory (ch13)</li>
+    </ul>
+  </li>
+  <li> week 7
+    <ul>
+      <li> parallel patterns</li>
+      <li> OpenMP</li>
+    </ul>
+  </li>
+  <li> week 8
+    <ul>
+      <li> map, reduce, scan, stencil</li>
+      <li> Mandelbrot set</li>
+    </ul>
+  </li>
+  <li> week 9
+    <ul>
+      <li>fork-join</li>
+      <li> k-means clustering</li>
+    </ul>
+  </li>
+</ul>
+
+<h4> How you will be evaluated:</h4>
+<ul>
+  <li> attendance and participation in class, helping others, asking questions</li>
+  <li> Reading assignments: you need to do them. Typically, they will be due on Wed.
+  The more questions you ask, the better.</li>
+  <li> Labs: there will be about 8 labs for parallel computing over the quarter, working in pairs, write
+    up what you did, what you learned, submit any code you wrote.  Take responsibility
+    for your work and give credit to others.  Some labs may be part of a larger
+    assignment.  I may not give you feedback on specific labs unless you ask.
+    I plan to give regular feedback on the homework. 
+  </li>
+  <li> The work flow is: reading assignment, lab, lab report, post some code on Canvas,
+    comment on someone else's code, homework assignment, quiz</li>
+  <li> Written exercises (short): due on Thurs. doc, docx or pdf on Canvas</li>
+  <li> Programming exercises.  There may be a some programming exercises and extensions
+    to the lab exercises.
+  </li>
+  <li> Quizzes will mostly be on Tuesdays</li>
+  <li> Link to Canvas Page  Canvas.evergreen.edu</li>
+</ul>
+
+
+</body> </html>
+<!DOCTYPE html> 
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<html> 
+<head> <title>Systems and Parallel and Distributed Computing</title>
+<link href="../mainstyles.css" rel="stylesheet" type="text/css" />
+</head> 
+<body> 
+<div id="container"> 
+<header>
+<h1>Syllabus: Systems and Parallel and Distributed Computing</h1>
+
+</header>
+<h3>Welcome</h3>
+
+<h3>Learning Goals</h3>
+<h4>7 Major Learning Goals</h4>
+<ul>
+  <li> learn enough C to study architecture, assembly language.</li>
+  <li> learn assembly for architecture (how computers work)</li>
+  <li> learn architecture to understand programs</li>
+  <li> learn basics of Linux command line</li>
+  <li> Write parallel algorithms to solve computational problems on parallel hardware.</li>
+  <li> Analyze the efficiency of a parallel implementation, e.g. measure speedup.</li>
+  <li> Program a parallel algorithm using one of the standard paradigms/programming languages,
+  e.g. Threading in Java, multithreading in C: OpenMP, pthreads, MPI, OpenACC, OpenCL</li>
+</ul>
+
+
+<h4>Major Learning Objectives</h4>
+<ul>
+  <li> Explain the difference between parallelism and concurrency</li>
+  <li> Write parallel programs in OpenMP in C</li>
+  <li> Explain when and how a serial algorithm can be parallelized to speed up execution</li>
+  <li> Identify data dependence in a for-loop</li>
+  <li> Explain the benefits of multicore HW and multithreaded SW</li>
+</ul>
+
+<h4>Weekly topics</h4>
+<ul>
+  <li> Week 1
+    <ul>
+      <li> Intro to Linux CLI</li>
+      <li> Intro to computer architecture</li>
+      <li> A brief intro to networking</li>
+      <li> An intro to programming in C</li>
+    </ul>
+  </li>
+  <li> week 2
+    <ul>
+      <li> more C programming, pointers</li>
+      <li> function stack</li>
+      <li> dynamic memory allocation</li>
+      <li> strings and arrays</li>
+      <li> compiling C to assembly</li>
+    </ul>
+  </li>
+  <li> week 3
+    <ul>
+      <li>gdb</li>
+    </ul>
+  </li>
+  <li> week 4
+    <ul>
+      <li> processor architecture (ch5)</li>
+      <li> multicore (ch14)</li>
+      <li> x86 assembly (ch8)</li>
+      <li> OpenMP (ch14)</li>
+    </ul>
+  </li>
+  <li> week 5
+    <ul>
+      <li>memory</li>
+      <li>pthreads (ch14)</li>
+    </ul>
+  </li>
+  <li> week 6
+    <ul>
+      <li> code optimization (ch12)</li>
+      <li> OS and virtual memory (ch13)</li>
+    </ul>
+  </li>
+  <li> week 7
+    <ul>
+      <li> parallel patterns</li>
+      <li> OpenMP</li>
+    </ul>
+  </li>
+  <li> week 8
+    <ul>
+      <li> map, reduce, scan, stencil</li>
+      <li> Mandelbrot set</li>
+    </ul>
+  </li>
+  <li> week 9
+    <ul>
+      <li>fork-join</li>
+      <li> k-means clustering</li>
+    </ul>
+  </li>
+</ul>
+
+<h4> How you will be evaluated:</h4>
+<ul>
+  <li> attendance and participation in class, helping others, asking questions</li>
+  <li> Reading assignments: you need to do them. Typically, they will be due on Wed.
+  The more questions you ask, the better.</li>
+  <li> Labs: there will be about 8 labs for parallel computing over the quarter, working in pairs, write
+    up what you did, what you learned, submit any code you wrote.  Take responsibility
+    for your work and give credit to others.  Some labs may be part of a larger
+    assignment.  I may not give you feedback on specific labs unless you ask.
+    I plan to give regular feedback on the homework. 
+  </li>
+  <li> The work flow is: reading assignment, lab, lab report, post some code on Canvas,
+    comment on someone else's code, homework assignment, quiz</li>
+  <li> Written exercises (short): due on Thurs. doc, docx or pdf on Canvas</li>
+  <li> Programming exercises.  There may be a some programming exercises and extensions
+    to the lab exercises.
+  </li>
+  <li> Quizzes will mostly be on Tuesdays</li>
+  <li> Link to Canvas Page  Canvas.evergreen.edu</li>
+</ul>
+
+
+</body> </html>
+<!DOCTYPE html> 
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<html> 
+<head> <title>Systems and Parallel and Distributed Computing</title>
+<link href="../mainstyles.css" rel="stylesheet" type="text/css" />
+</head> 
+<body> 
+<div id="container"> 
+<header>
+<h1>Syllabus: Systems and Parallel and Distributed Computing</h1>
+
+</header>
+<h3>Welcome</h3>
+
+<h3>Learning Goals</h3>
+<h4>7 Major Learning Goals</h4>
+<ul>
+  <li> learn enough C to study architecture, assembly language.</li>
+  <li> learn assembly for architecture (how computers work)</li>
+  <li> learn architecture to understand programs</li>
+  <li> learn basics of Linux command line</li>
+  <li> Write parallel algorithms to solve computational problems on parallel hardware.</li>
+  <li> Analyze the efficiency of a parallel implementation, e.g. measure speedup.</li>
+  <li> Program a parallel algorithm using one of the standard paradigms/programming languages,
+  e.g. Threading in Java, multithreading in C: OpenMP, pthreads, MPI, OpenACC, OpenCL</li>
+</ul>
+
+
+<h4>Major Learning Objectives</h4>
+<ul>
+  <li> Explain the difference between parallelism and concurrency</li>
+  <li> Write parallel programs in OpenMP in C</li>
+  <li> Explain when and how a serial algorithm can be parallelized to speed up execution</li>
+  <li> Identify data dependence in a for-loop</li>
+  <li> Explain the benefits of multicore HW and multithreaded SW</li>
+</ul>
+
+<h4>Weekly topics</h4>
+<ul>
+  <li> Week 1
+    <ul>
+      <li> Intro to Linux CLI</li>
+      <li> Intro to computer architecture</li>
+      <li> A brief intro to networking</li>
+      <li> An intro to programming in C</li>
+    </ul>
+  </li>
+  <li> week 2
+    <ul>
+      <li> more C programming, pointers</li>
+      <li> function stack</li>
+      <li> dynamic memory allocation</li>
+      <li> strings and arrays</li>
+      <li> compiling C to assembly</li>
+    </ul>
+  </li>
+  <li> week 3
+    <ul>
+      <li>gdb</li>
+    </ul>
+  </li>
+  <li> week 4
+    <ul>
+      <li> processor architecture (ch5)</li>
+      <li> multicore (ch14)</li>
+      <li> x86 assembly (ch8)</li>
+      <li> OpenMP (ch14)</li>
+    </ul>
+  </li>
+  <li> week 5
+    <ul>
+      <li>memory</li>
+      <li>pthreads (ch14)</li>
+    </ul>
+  </li>
+  <li> week 6
+    <ul>
+      <li> code optimization (ch12)</li>
+      <li> OS and virtual memory (ch13)</li>
+    </ul>
+  </li>
+  <li> week 7
+    <ul>
+      <li> parallel patterns</li>
+      <li> OpenMP</li>
+    </ul>
+  </li>
+  <li> week 8
+    <ul>
+      <li> map, reduce, scan, stencil</li>
+      <li> Mandelbrot set</li>
+    </ul>
+  </li>
+  <li> week 9
+    <ul>
+      <li>fork-join</li>
+      <li> k-means clustering</li>
+    </ul>
+  </li>
+</ul>
+
+<h4> How you will be evaluated:</h4>
+<ul>
+  <li> attendance and participation in class, helping others, asking questions</li>
+  <li> Reading assignments: you need to do them. Typically, they will be due on Wed.
+  The more questions you ask, the better.</li>
+  <li> Labs: there will be about 8 labs for parallel computing over the quarter, working in pairs, write
+    up what you did, what you learned, submit any code you wrote.  Take responsibility
+    for your work and give credit to others.  Some labs may be part of a larger
+    assignment.  I may not give you feedback on specific labs unless you ask.
+    I plan to give regular feedback on the homework. 
+  </li>
+  <li> The work flow is: reading assignment, lab, lab report, post some code on Canvas,
+    comment on someone else's code, homework assignment, quiz</li>
+  <li> Written exercises (short): due on Thurs. doc, docx or pdf on Canvas</li>
+  <li> Programming exercises.  There may be a some programming exercises and extensions
+    to the lab exercises.
+  </li>
+  <li> Quizzes will mostly be on Tuesdays</li>
+  <li> Link to Canvas Page  Canvas.evergreen.edu</li>
+</ul>
+
+
+</body> </html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html> 
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<html> 
+<head> <title>Systems and PDC</title>
+<link href="../mainstyles.css" rel="stylesheet" type="text/css" />
+</head> 
+<body> 
+<div id="container"> 
+<header>
+<h1>Systems and Parallel and Distributed Computing: Week 1</h1>
+
+</header>
+<h3>Welcome</h3>
+
+<h3>Learning Goals</h3>
+<h4>Major Learning Goals</h4>
+<ul>
+  <li> learn enough C to study parallel computing and architecture</li>
+  <li> learn architecture to understand how programs interact</li>
+  <li> learn 3 different models of parallel h/w 
+	<ul>
+	   <li> multicore</li>
+	   <li> vector processor</li>
+	   <li> distributed memory multi-processor</li>
+        </ul>
+  </li>
+  <li> learn parallel software frameworks: pthreads, OpenMP, Java Streams</li>
+  <li> Explain the difference between threads and processes</li>
+</ul>
+
+
+<h4>Major Learning Objectives: week 1</h4>
+<ul>
+  <li> learn basics of Linux command line</li>
+  <li> use gcc compiler in Linux</li>
+  <li> C: define and call functions</li>
+  <li> C: use strings</li>
+  <li> How memory is laid out in C</li>
+</ul>
+
+<h4>Program structure</h4>
+You should have a programming environment to work in, e.g. gitpod, what is gitpod?
+<ul>
+  <li> #include</li>
+  <li> main</li>
+  <li> built-in data types: declarations, assignment </li>
+     <ul>
+      <li> int,  short, long</li>
+      <li> char, unsigned short</li>
+      <li> float, double</li>
+      <li> arrays</li>
+     </ul>
+     [programming break: try gitpod]
+  <li> functions [programming break]</li>
+  <li> I/O: printf, gets, scanf, puts, read, write [programming break]</li> 
+  <li> control logic: if, for, while [programming break]
+    How would you rewrite this:
+    <pre>
+      if (!(x &lt; 0 || x &gt; 10)) {
+        y = x;
+      } else {
+        y = 0;
+      }
+      </pre>
+  </li>
+</ul>
+
+<h4>Arrays and strings</h4>
+<ol>
+  <li> syntax slightly different from java</li>
+  <li> example
+    <pre>
+      int ar[10];
+      int ar = {1,2,3,4};
+    </pre>
+  </li>
+  <li> Strings are arrays of char, (see string_stuff.c)
+    <pre>
+      char str1[10];
+      char str2[] = "hello";
+    </pre>  
+  </li>
+  <li> Why do you have a function strlen() but no function for array length? [poll]
+  </li>
+</ol>
+
+<h4> Structs</h4>
+<ul>
+  <li> compound/derived type, like array but heterogeneous</li>
+  <li> example
+    <pre>
+      struct studentT {
+        char name[64];
+        int age;
+        float gpa;
+        int grad_yr;
+    };
+
+    struct studentT student1;
+    student1.age = 5;
+
+    </pre>
+  </li>
+  <li> Structs are lvalues</li>
+</ul>
+
+<h4>Integers</h4>
+<ul>
+  <li> how many bytes in char, short, unsigned short, int, long?</li>
+  <li> How do you find the largest short? smallest short?</li>
+  <li> How do you find the largest int? smallest int?</li>
+</ul>  
+
+<h4>Processors</h4>
+<ul>
+  <li> CPU
+    <ul>
+      <li> ALU</li>
+      <li> registers: general purpose and specific</li>
+      <li> MUXs</li>
+      <li> clock</li>
+    </ul>
+
+  </li>
+  <LI> Memory</LI>
+  <li> input</li>
+  <li> output</li>
+  <li> buses</li>
+</ul>
+
+</body> </html>

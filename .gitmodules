@@ -1,0 +1,6 @@
+[submodule "SystemsPDC/week02/systems_pdc-week2"]
+	path = SystemsPDC/week02/systems_pdc-week2
+	url = https://github.com/weissri/systems_pdc-week2.git
+[submodule "SystemsPDC/SystemsPDC/week01/Systems-PDC-week1"]
+	path = SystemsPDC/SystemsPDC/week01/Systems-PDC-week1
+	url = https://github.com/TheEvergreenStateCollege/Systems-PDC-week1.git

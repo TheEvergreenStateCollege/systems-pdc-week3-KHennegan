@@ -1,0 +1,206 @@
+<!DOCTYPE html> 
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<html> 
+<head> <title>Systems and PDC</title>
+<link href="../mainstyles.css" rel="stylesheet" type="text/css" />
+</head> 
+<body> 
+<div id="container"> 
+<header>
+<h1>Systems and Parallel and Distributed Computing: Week 2</h1>
+
+</header>
+<h3>Week 2</h3>
+
+<h3>Learning Goals</h3>
+<h4>Major Learning Goals</h4>
+<ul>
+  <li> learn enough C to study parallel computing and architecture</li>
+  <li> learn architecture to understand hardware support for parallel computing</li>
+  <li> learn 3 different models of parallel h/w 
+	<ul>
+	   <li> multicore</li>
+	   <li> vector processor</li>
+	   <li> distributed memory multi-processor</li>
+        </ul>
+  </li>
+  <li> learn parallel software frameworks: pthreads, OpenMP, Java Streams</li>
+  <li> Explain the difference between threads and processes</li>
+</ul>
+
+
+<h4>Major Learning Objectives: week 2</h4>
+<ul>
+  <li> learn basics of Linux command line</li>
+  <li> use gcc compiler in Linux</li>
+  <li> C: define and call functions</li>
+  <li> C: use strings</li>
+  <li> How memory is laid out in C</li>
+</ul>
+
+<h4>Questions (Tues)</h4>
+<ul>
+  <li> What happens when 2 pointers point to the same address (aliasing), example
+    <pre>
+      student_T s1;
+      s1.age = 18;
+      student_T *ptr;
+      ptr = &amp;s1;
+      ptr -> age = 21;
+      printf("%d\n", s1.age);
+    </pre>
+  </li>
+  <li>  </li>
+  <li> what is the scope of a variable?</li>
+</ul>
+
+<h4>Program structure</h4>
+You should have a programming environment to work in, e.g. gitpod. Note that gitpod has its own copy of the files from github
+<ul>
+  <li> add, commit, push</li>
+  <li> Scope of variables: local or global
+    <pre>
+      int a;
+      int add(int x, int y) {
+        return x + y;
+      }
+      
+      int main() {
+        int c;
+      
+      }
+    </pre>
+    variables a, b, c, x, y
+  </li>
+ <li> see fig 1 in 2.1</li>
+ <h4> Pointers</h4>
+ <ul>
+  <li> pointers are addresses</li>
+  <li> 
+    <pre>
+      int *px;  //px is n address. The value at that address is an int
+      int *array;  //array is the address of an array of ints
+      int x = 8;
+      px = &amp;xi;
+      *px = 5; // what happens?
+    </pre>
+  </li> 
+  <li> NULL pointer
+    <pre>
+      px = NULL;
+      *px = 5;
+    </pre>
+  </li>
+  <li> pointers can be used to pass array parameters
+    <pre>
+      int array[] = {1,2,3,4,5};
+
+      void fun(int *p) {
+        p[0] = 12;
+        return;
+      }
+
+      fun(array);
+    </pre>
+  </li>
+  <li> swap function [programming break]
+    <pre> 
+      void swap(int x, int y){
+        int tmp = x;
+        x = y;
+        y = tmp;
+        return;
+      }
+    </pre>
+  </li>
+</ul>
+
+<h4>Dynamic memory allocation</h4>
+<ul>
+  <li> What are some reasons?</li>
+  <li> dynamic arrays [programming break]
+    <pre>
+      int *array = (int *) malloc(10 * sizeof(int));
+      if (array != NULL) {
+        array[9] = 42;
+      }
+      // does C initialize the array to 0?
+      free(array);
+      array = NULL;
+    </pre>
+  </li>
+  <li> memory management in C is a potential problem  </li>
+</ul>
+
+<h4>Arrays and strings</h4>
+<ol>
+  <li> syntax slightly different from java</li>
+  <li> example
+    <pre>
+      int ar[10];
+      int ar = {1,2,3,4};
+    </pre>
+  </li>
+  <li> Strings are arrays of char, 
+    <pre>
+      char str1[10];
+      char *str2 = "hello";
+    </pre>  
+  </li>
+  <li> what happens if you use [programming break]
+    <pre>
+      sizeof(*str2);
+      sizeof(*array);
+    </pre>
+  </li>
+</ol>
+
+<h4> Structs</h4>
+<ul>
+  <li> compound/derived type, like array but heterogeneous</li>
+  <li> example
+    <pre>
+      struct student {
+        char name[64];
+        int age;
+        float gpa;
+        int grad_yr;
+    };
+
+   
+    struct student student1;
+    student1.age = 5;
+
+    typedef struct student studentT;
+    studentT student2;
+
+    </pre>
+  </li>
+  <li> Structs are lvalues</li>
+</ul>
+
+<h4>Integers</h4>
+<ul>
+  <li> how many bytes in char, short, unsigned short, int, long?</li>
+  <li> How do you find the largest short? smallest short?</li>
+  <li> How do you find the largest int? smallest int?</li>
+</ul>  
+
+<h4>Processors</h4>
+<ul>
+  <li> CPU
+    <ul>
+      <li> ALU</li>
+      <li> registers: general purpose and specific</li>
+      <li> MUXs</li>
+      <li> clock</li>
+    </ul>
+
+  </li>
+  <LI> Memory</LI>
+  <li> input</li>
+  <li> output</li>
+  <li> buses</li>
+</ul>
+
+</body> </html>
