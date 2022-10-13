@@ -12,14 +12,14 @@ void print_board_indices(short **board, int xlimit, int ylimit) {
    int i,j;
   for (i = 0; i < xlimit; i++) {
     for (j = 0; j < ylimit; j++) {
-      if (board[i][j] == 1) {
+      if (board[i][j] == 1) { //don't we need to print spaces for the dead cells too?
 	printf("%d %d\n", i, j);
       }
     }
   }
 }
 
-void print_board(short **board, int xlimit, int ylimit) {
+void print_board(short **board, int xlimit, int ylimit) {  //a second board limit??
    /* print out final board */
    int i,j;
   for (i = 0; i < xlimit; i++) {
@@ -79,7 +79,7 @@ int main (int argc, char* argv[]) {
   b1_rows = (short **) malloc(xlimit * sizeof(short*));
   b1_rows[0] = board1_data;
   for (i = 1; i < xlimit; i++) {
-    b1_rows[i] = b1_rows[i-1] + ylimit;
+    b1_rows[i] = b1_rows[i-1] + ylimit; //what is this!!??
   }
   b2_rows = (short **) malloc(xlimit * sizeof(short*));
   b2_rows[0] = board2_data;
@@ -88,6 +88,14 @@ int main (int argc, char* argv[]) {
   }
 
   /* initialize board1 with input data */
+short z = 1;
+
+  for (i = 1; i < xlimit; i++) {
+    for (j = i; j < ylimit; j++) {
+      b1_rows[i][j] = z;
+      printf("The value of [%hd][%hd] is: %d\n", i, j, b1_rows[i][j]);
+    }
+  }
   
 
   /* perform the iterations, each time switching boards */
