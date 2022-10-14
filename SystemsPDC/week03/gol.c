@@ -5,6 +5,7 @@
 */
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 
 
 void print_board_indices(short **board, int xlimit, int ylimit) {
@@ -43,7 +44,7 @@ void init_board(short **board, int xlimit, int ylimit) {
 
 int main (int argc, char* argv[]) {
 
-  char *fname;
+  char *fval;
   FILE *fd;
   int xlimit, ylimit, iterations, iter;
   short *board1_data = NULL, *board2_data = NULL;
@@ -88,19 +89,31 @@ int main (int argc, char* argv[]) {
   }
 
   /* initialize board1 with input data */
-short z = 1;
-
-  for (i = 1; i < xlimit; i++) {
-    for (j = i; j < ylimit; j++) {
-      b1_rows[i][j] = z;
-      printf("The value of [%hd][%hd] is: %d\n", i, j, b1_rows[i][j]);
+  fd = fopen("data.txt", "r"); //read our data file
+ 
+    if (NULL == fd) { //error catch
+        printf("file can't be opened \n");
     }
-  }
+
+//input the file data into our 2D array board
+  for (i = 0; i < xlimit; i++) {
+    for (j = 0; j < ylimit; j++) {
+      char c = fgetc(fd);
+      int z = c - '0'; //prevents it being an ascii value somehow
+        if (z != -1) {
+          b1_rows[i][j] = (short) z;
+          //printf("The value of [%hd][%hd] is: %d\n", i, j, b1_rows[i][j]);
+        }
+    }
+  } 
   
+  //Print starting board. must be adjusted for boundry rows
+  oldb = b1_rows;
+  print_board(oldb, xlimit, ylimit);
 
   /* perform the iterations, each time switching boards */
   for (iter = 0; iter < iterations; iter++) {
-    /* switch boards */
+    /* switch boards */ //what use is a temp board when pointers will modify the originals anyway...?
     tempb = oldb;
     oldb = newb;
     newb = tempb;
